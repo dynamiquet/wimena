@@ -1,37 +1,10 @@
 import { useState } from "react";
 import type { Offer } from "../types/offer"
 import OfferCard from "../Components/OfferCard";
+import { getOffers } from "../services/offerServices";
 
 function HomePage() {
-    const [offers] = useState<Offer[]>([
-    {
-        id: 1,
-        title: "Bakery surprise bag",
-        price: 2.5,
-        quantity: 3,
-        providerName: "Kigali Bakery",
-        location: "Kimironko",
-        pickupWindow: "18:00–19:00",
-    },
-    {
-        id: 2,
-        title: "Fresh Pasta Bundle",
-        price: 2.5,
-        quantity: 3,
-        providerName: "Kigali Kitchen",
-        location: "Kigali City Center",
-        pickupWindow: "18:00–19:00",
-    },
-    {
-        id:3,
-        title: "Pastry Assortment",
-        price: 2.5,
-        quantity: 3,
-        providerName: "Downtown Cafe",
-        location: "Nyarutarama",
-        pickupWindow: "18:00–19:00",
-    },
-    ]);
+    const [offers] = useState<Offer[]>(getOffers());
 
   const [selectedOffer, setSelectedOffer] = useState<Offer | null>(null);
 
